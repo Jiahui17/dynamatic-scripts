@@ -13,7 +13,7 @@ POLYGEIST_DIR_PREFIX="/opt/polygeist"
 
 # export CCACHE_DISABLE=1
 
-LSQ_GEN_PATH="tools/backend/lsq-generator"
+LSQ_GEN_PATH="tools/backend/lsq-generator-chisel"
 LSQ_GEN_JAR="target/scala-2.13/lsq-generator.jar"
 
 [ -d /opt/gurobi1000 ] && {
