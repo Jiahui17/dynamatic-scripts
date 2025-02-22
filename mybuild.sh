@@ -8,7 +8,7 @@
 # this script should be called from dynamatic's source directory
 SCRIPT_CWD="$PWD"
 
-CMAKE=cmake
+CMAKE="/usr/bin/cmake"
 POLYGEIST_DIR_PREFIX="/opt/polygeist"
 
 # export CCACHE_DISABLE=1
@@ -43,8 +43,8 @@ LSQ_GEN_JAR="target/scala-2.13/lsq-generator.jar"
 
 LLVM_PREFIX="$POLYGEIST_DIR_PREFIX/llvm-project"
 
-C_COMPILER="clang"
-CXX_COMPILER="clang++"
+C_COMPILER="/usr/bin/clang"
+CXX_COMPILER="/usr/bin/clang++"
 
 CMAKE_FLAGS_SUPER="\
   -DCMAKE_C_COMPILER=$C_COMPILER \
