@@ -1,5 +1,7 @@
 # Scripts for Working with Dynamatic on the ee-tik-dynamo-eda1 Machine
 
+Once you have been given access to the server, you can login by ssh to ee-tik-dynamo-eda1.ethz.ch, using your ETH username and email password.
+
 ## Prerequisite: get your Gurobi license
 
 Gurobi offers free [academic
