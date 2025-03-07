@@ -46,6 +46,25 @@ bash "../build_visualizer.sh"
 bash run.sh
 ```
 
+Inspecting the generated files:
+```
+integration-test/fir/out/comp/
+├── affine_mem.mlir # Affine dialect with memory analysis
+├── affine.mlir
+├── cf_dyn_transformed.mlir
+├── cf.mlir         # CF dialect
+├── cf_transformed.mlir
+├── fir.dot
+├── fir.png
+├── handshake_buffered.mlir
+├── handshake_export.mlir
+├── handshake.mlir
+├── handshake_transformed.mlir
+├── hw.mlir
+├── profiler-inputs.txt
+└── scf.mlir
+```
+
 ## Trouble-shooting
 
 ### Error when running simulation: 
