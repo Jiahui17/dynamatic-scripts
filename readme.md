@@ -54,7 +54,8 @@ cd dynamatic/
 bash ../mybuild.sh
 ``` 
 
-> [!NOTE] Error `public key: permission denied`
+> [!NOTE]
+> Error `public key: permission denied`
 > You need to add a ssh key into the server and upload the public key to GitHub
 > 1. Type `ssh-keygen` in your terminal. You will be prompted for several times,
 >    you can just press enter several times to keep everything in its default
