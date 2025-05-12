@@ -7,10 +7,10 @@ Once you have been given access to the server, you can login by ssh to ee-tik-dy
 Gurobi offers free [academic
 license](https://www.gurobi.com/academia/academic-program-and-licenses/).
 
-After getting the license, go to the EDA2 machine:
+After getting the license, go to the `ee-tik-dynamo-eda1` machine:
 
 ```sh
-/opt/gurobi1000/linux64/bin/grbgetkey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx # format of your key
+/opt/gurobi1103/linux64/bin/grbgetkey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx # format of your key
 ```
 
 Which stores the license file at `~/gurobi.lic` (this is one of the default
@@ -26,7 +26,7 @@ export PATH="${PATH}:${GUROBI_HOME}/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$GUROBI_HOME/lib"
 ```
 
-## Clone and build dynamatic on the EDA2 machine
+## Clone and build dynamatic on the `ee-tik-dynamo-eda1` machine
 
 ```sh
 git clone git@github.com:EPFL-LAP/dynamatic.git
