@@ -75,6 +75,7 @@ make_simlink () {
   ln -f --symbolic $SCRIPT_CWD/build/bin/exp-frequency-profiler ./bin/exp-frequency-profiler
   ln -f --symbolic $SCRIPT_CWD/build/bin/export-dot ./bin/export-dot
   ln -f --symbolic $SCRIPT_CWD/build/bin/export-rtl ./bin/export-rtl
+  ln -f --symbolic $SCRIPT_CWD/build/bin/export-cfg ./bin/export-cfg
   ln -f --symbolic $SCRIPT_CWD/build/bin/handshake-simulator ./bin/handshake-simulator
   ln -f --symbolic $SCRIPT_CWD/build/bin/hls-verifier ./bin/hls-verifier
   ln -f --symbolic $SCRIPT_CWD/build/bin/wlf2csv ./bin/wlf2csv

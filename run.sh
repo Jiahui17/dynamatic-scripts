@@ -12,7 +12,6 @@ HDL="vhdl"
 
 f_benchmark_src="mvt_float/mvt_float.c"
 f_benchmark_src="sharing/share_test_2/share_test_2.c"
-f_benchmark_src="fir/fir.c"
 f_benchmark_src="atax/atax.c"
 f_benchmark_src="dct/dct.c"
 f_benchmark_src="cnn/cnn.c"
@@ -71,14 +70,13 @@ s_source_file="$dynamatic_path/integration-test/$f_benchmark_src"
 [ -f "$s_source_file" ] || \
   { echo "Source file $s_source_file does not exist!"; exit 1; }
 
-echo "set-dynamatic-path ./dynamatic; \
-  set-src ./dynamatic/integration-test/$f_benchmark_src; \
+echo "set-dynamatic-path $dynamatic_path; \
+  set-src $dynamatic_path/integration-test/$f_benchmark_src; \
   set-clock-period 8; \
   compile $SHARING $BUFFER_ALGORITHM; \
   write-hdl --hdl $HDL; \
   simulate; \
-  visualize; \
   exit" \
-  | dynamatic/bin/dynamatic --exit-on-failure --debug
+  | "$dynamatic_path/bin/dynamatic" --exit-on-failure --debug
 
 exit
