@@ -2,7 +2,7 @@
 
 Once you have been given access to the server, you can login by ssh to ee-tik-dynamo-eda1.ethz.ch, using your ETH username and email password.
 
-## Prerequisite: get your Gurobi license
+## Prerequisite: Get Your Gurobi License
 
 Gurobi offers free [academic
 license](https://www.gurobi.com/academia/academic-program-and-licenses/).
@@ -16,17 +16,37 @@ After getting the license, go to the `ee-tik-dynamo-eda1` machine:
 Which stores the license file at `~/gurobi.lic` (this is one of the default
 location for Gurobi to check if you have a valid license).
 
-Remember to put the following lines in your `~/.bashrc` or `~/.zshrc`.
-Dynamatic's cmake settings will use these environment variables to determine
-how to include the headers of Gurobi.
+Remember to put the following lines in your `~/.bashrc`.  Dynamatic's cmake
+settings will use these environment variables to determine how to include the
+headers of Gurobi.
 
 ```sh
-export GUROBI_HOME="/opt/gurobi1003/linux64"
+export GUROBI_HOME="/opt/gurobi1103/linux64"
 export PATH="${PATH}:${GUROBI_HOME}/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$GUROBI_HOME/lib"
 ```
 
-## Clone and build dynamatic on the `ee-tik-dynamo-eda1` machine
+Then, you need to reload the environment. Type the following in your terminal:
+
+```
+source ~/.bashrc
+```
+
+To check if the step above is done correctly, type the following in your terminal:
+
+```sh
+gurobi_cl
+```
+
+If it returns 
+
+```
+gurobi_cl: command not found
+```
+
+then there is something wrong in your settings.
+
+## Clone and Build Dynamatic on the `ee-tik-dynamo-eda1` Machine
 
 ```sh
 git clone git@github.com:EPFL-LAP/dynamatic.git
@@ -34,7 +54,7 @@ cd dynamatic/
 bash ../mybuild.sh
 ``` 
 
-## (Optional) Building the handshake visualizer
+## (Optional) Building the Handshake Visualizer
 
 ```sh
 cd dynamatic/
@@ -42,7 +62,7 @@ git submodule init "visual-dataflow/godot-cpp"
 bash "../build_visualizer.sh"
 ``` 
 
-## Run your first example 
+## Run Your First Example 
 
 ```sh
 bash run.sh
@@ -67,9 +87,9 @@ integration-test/fir/out/comp/
 └── scf.mlir
 ```
 
-## Trouble-shooting
+## Trouble-Shooting
 
-### Error when running simulation: 
+### Error When Running Simulation: 
 
 ```
 dynamatic/include/dynamatic/Integration.h:214:34: error: no member named 'setfill' in namespace 'std'
@@ -90,7 +110,7 @@ PR):
  RESOURCE_DIR="$DYNAMATIC_DIR/tools/hls-verifier/resources" 
 ```
 
-### Error during visualization:
+### Error During Visualization:
 
 A pop-up window saying "Your video card drivers seems not to support the
 required Vulkan version...".
