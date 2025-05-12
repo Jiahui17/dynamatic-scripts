@@ -54,6 +54,18 @@ cd dynamatic/
 bash ../mybuild.sh
 ``` 
 
+> [!NOTE]
+> Error: `public key: permission denied`:
+> You need to add a ssh key into the server and upload the public key to GitHub
+> 1. Type `ssh-keygen` in your terminal. You will be prompt for several times,
+>    you can just press enter several times to keep everything in its default
+>    value.
+> 2. Go to `GitHub -> Settings -> SSH and GPG keys` and click `Add new SSH key`.
+> 3. Give it any title. And paste the content of `~/.ssh/id_rsa.pub` into the Key.
+> Voila! The error should be resolved now. Please try to clone the GitHub repo
+> again.
+
+
 ## (Optional) Building the Handshake Visualizer
 
 ```sh
