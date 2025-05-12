@@ -16,8 +16,8 @@ POLYGEIST_DIR_PREFIX="/opt/polygeist"
 LSQ_GEN_PATH="tools/backend/lsq-generator-chisel"
 LSQ_GEN_JAR="target/scala-2.13/lsq-generator.jar"
 
-[ -d /opt/gurobi1000 ] && {
-  export GUROBI_HOME="/opt/gurobi1000/linux64"
+[ -d "/opt/gurobi1103" ] && {
+  export GUROBI_HOME="/opt/gurobi1103/linux64"
   export PATH="${PATH}:${GUROBI_HOME}/bin"
   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 }
@@ -25,13 +25,6 @@ LSQ_GEN_JAR="target/scala-2.13/lsq-generator.jar"
 # ----------------------------------------------------------------------------------
 # - here are some settings for our centos/rocky servers (identified by the hostname)
 # ----------------------------------------------------------------------------------
-
-[ "$(hostname)" = 'ee-tik-eda2' ] && {
-  POLYGEIST_DIR_PREFIX='/opt/polygeist-lap'
-  CMAKE="/opt/"cmake-3.*.*-linux-x86_64"/bin/cmake"
-  source /opt/rh/devtoolset-11/enable
-  source /opt/rh/llvm-toolset-7.0/enable
-}
 
 [ "$(hostname)" = 'ee-tik-dynamo-eda1' ] && {
   source /opt/rh/gcc-toolset-13/enable
@@ -113,5 +106,5 @@ build_lsq() {
 }
 
 build_dynamatic
-build_lsq
+# build_lsq
 make_simlink
