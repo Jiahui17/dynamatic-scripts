@@ -91,7 +91,7 @@ make_simlink () {
 
 
   # Create symbolic links to polygeist headers
-  ln -f --symbolic $POLYGEIST_DIR_PREFIX/llvm-project/clang/lib/Header $SCRIPT_CWD/build/include/polygeist
+  ln -f --symbolic $POLYGEIST_DIR_PREFIX/llvm-project/clang/lib/Headers $SCRIPT_CWD/build/include/polygeist
 
   cd "$SCRIPT_CWD" && mkdir -p bin/generators
 
