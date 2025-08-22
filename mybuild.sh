@@ -53,6 +53,7 @@ build_dynamatic () {
     -DMLIR_DIR=$LLVM_PREFIX/build/lib/cmake/mlir \
     -DLLVM_DIR=$LLVM_PREFIX/build/lib/cmake/llvm \
     -DCLANG_DIR=$LLVM_PREFIX/build/lib/cmake/clang \
+    -DPolly_DIR=$LLVM_PREFIX/build/tools/polly/lib/cmake/polly \
     -DLLVM_TARGETS_TO_BUILD="host" \
     -DCMAKE_BUILD_TYPE=Debug \
     -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
@@ -93,9 +94,9 @@ make_simlink () {
   # Make the scripts used by the frontend executable
   chmod +x tools/dynamatic/scripts/*.sh
 
-  # Symlink llvm-project if does not exist
+  # Symlink polygeist includes if they do not exist
   [ ! -L $SCRIPT_CWD/polygeist/llvm-project ] && {
-    ln -s $POLYGEIST_DIR_PREFIX/llvm-project $SCRIPT_CWD/polygeist/llvm-project
+    ln -s $SCRIPT_CWD/llvm-project $SCRIPT_CWD/polygeist/llvm-project
   }
 }
 
