@@ -90,7 +90,7 @@ make_simlink () {
   ln -f --symbolic "$SCRIPT_CWD/$LSQ_GEN_PATH/$LSQ_GEN_JAR" ./bin/generators/lsq-generator.jar
 
   # Create symbolic links to polygeist headers
-  ln -fT --symbolic $POLYGEIST_DIR_PREFIX/llvm-project/clang/lib/Headers $SCRIPT_CWD/build/include/polygeist
+  ln -fT --symbolic $POLYGEIST_DIR_PREFIX/llvm-project/clang/lib/Headers $SCRIPT_CWD/build/include/clang_headers
 
   cd "$SCRIPT_CWD" && mkdir -p bin/generators
 
