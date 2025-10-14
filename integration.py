@@ -68,6 +68,8 @@ def generate_comparative_report():
     with open(CURRENT_MD, "w") as f:
         f.write("\n".join(filtered_lines))
 
+    print("[INFO] Comparative report printed")
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -113,6 +115,7 @@ as the markdown table will filter only to the benchmarks in current_perf_results
     }
     target = target_map[args.target]
 
+    print(f"[INFO] Running integration tests, using custom target {target}")
 
     shutil.rmtree("build/tools/integration/results", ignore_errors=True)
     subprocess.run(["ninja", "-C", "build", target])
@@ -124,4 +127,3 @@ as the markdown table will filter only to the benchmarks in current_perf_results
 
 if __name__ == "__main__":
     main()
-    
