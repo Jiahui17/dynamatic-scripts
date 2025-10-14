@@ -105,7 +105,7 @@ as the markdown table will filter only to the benchmarks in current_perf_results
     )
 
     parser.add_argument(
-        "--parallel",  
+        "--parallel",
         help="""
 How many integration tests run in parallel.
 Warning: Gurobi will use 32 threads per integration test for MILP-based buffering.
