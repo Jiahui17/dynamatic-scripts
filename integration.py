@@ -6,6 +6,8 @@ import json
 import shutil
 import re
 
+from argparse import RawTextHelpFormatter
+
 class Tests(Enum):
     ALL = "all"
     CI = "ci"
@@ -69,14 +71,19 @@ def generate_comparative_report():
 
 def main():
     parser = argparse.ArgumentParser(
-        description=(
-            "Run Dynamatic integration tests, and generate a comparative performance report."
-            "Call from inside the dynamatic directory as ../integration.py"
-            "Results are saved in result_integration/"
-            "If --set-baseline is used, the performance is stored as baseline_perf_results.json"
-            "Otherwise, the performance is stored as current_perf_results.json,"
-            "and additionally a markdown table is stored in current_perf_results.md"
-        )
+        description=f"""
+Run Dynamatic integration tests, and generate a comparative performance report.
+Call from inside the dynamatic directory as ../integration.py
+Results are saved in result_integration/
+If --set-baseline is used, the performance is stored as baseline_perf_results.json
+Otherwise, the performance is stored as current_perf_results.json,
+and additionally a markdown table is stored in current_perf_results.md,
+which compares to the stored baseline.
+
+It is recommened to run --set-baseline with --target all on the main branch,
+as the markdown table will filter only to the benchmarks in current_perf_results.json
+""".strip(),
+        formatter_class=RawTextHelpFormatter
     )
 
     parser.add_argument(
@@ -84,6 +91,8 @@ def main():
         type=Tests,
         choices=list(Tests),
         required=True,
+        # print the string values of the enums
+        metavar="{" + ", ".join(t.value for t in Tests) + "}",
         help="Which set of tests to run"
     )
     
@@ -115,3 +124,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
