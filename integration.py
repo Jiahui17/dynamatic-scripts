@@ -73,7 +73,7 @@ def generate_comparative_report():
 
 def main():
     parser = argparse.ArgumentParser(
-        description=f"""
+        description="""
 Run Dynamatic integration tests, and generate a comparative performance report.
 Call from inside the dynamatic directory as ../integration.py
 Results are saved in result_integration/
@@ -104,6 +104,15 @@ as the markdown table will filter only to the benchmarks in current_perf_results
         help="Store this run as the new baseline"
     )
 
+    parser.add_argument(
+        "--parallel",  
+        help="""
+How many integration tests run in parallel.
+Warning: Gurobi will use 32 threads per integration test for MILP-based buffering.
+""".strip(),
+        default=2
+    )
+
     args = parser.parse_args()
 
     # map from enum to test targets
@@ -118,6 +127,7 @@ as the markdown table will filter only to the benchmarks in current_perf_results
     print(f"[INFO] Running integration tests, using custom target {target}")
 
     shutil.rmtree("build/tools/integration/results", ignore_errors=True)
+    subprocess.run(["cmake", f"-DPARALLEL_FACTOR={args.parallel}", "-B", "build"])
     subprocess.run(["ninja", "-C", "build", target])
 
     if args.set_baseline:
