@@ -70,8 +70,12 @@ def generate_comparative_report():
 def main():
     parser = argparse.ArgumentParser(
         description=(
-            "Run Dynamatic integration tests."
+            "Run Dynamatic integration tests, and generate a comparative performance report."
             "Call from inside the dynamatic directory as ../integration.py"
+            "Results are saved in result_integration/"
+            "If --set-baseline is used, the performance is stored as baseline_perf_results.json"
+            "Otherwise, the performance is stored as current_perf_results.json,"
+            "and additionally a markdown table is stored in current_perf_results.md"
         )
     )
 
